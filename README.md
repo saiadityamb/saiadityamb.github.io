@@ -1,2 +1,2 @@
 # saiadityamb.github.io
-My Personal Wrbsite
+My Personal Website
