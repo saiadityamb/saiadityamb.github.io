@@ -8,15 +8,16 @@
     <title>M.B.SAI ADITYA</title>
     <!-- font icons -->
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="icon" href="./assets/imgs/" type="image/x-icon">
     <!-- Bootstrap + JohnDoe main styles -->
-	<link rel="stylesheet" href="assets/css/johndoe.css">
+	<link rel="stylesheet" href="assets/css/mbsaiaditya.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
     <!-- <a href="components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Components</a> -->
     <header class="header">
         <div class="container">
             <ul class="social-icons pt-3">
-                <li class="social-item"><a class="social-link text-light" href="linkedin.com/in/mbsaiaditya/"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
+                <li class="social-item"><a class="social-link text-light" href="https://www.linkedin.com/in/mbsaiaditya/"><i class="ti-linkedin" aria-hidden="true"></i></a></li>
                 <li class="social-item"><a class="social-link text-light" href="https://www.youtube.com/channel/UCG4t_CgwplyeZ99288cMcsw"><i class="ti-youtube" aria-hidden="true"></i></a></li>
                 <li class="social-item"><a class="social-link text-light" href="https://www.instagram.com/m.b.saiaditya/"><i class="ti-instagram" aria-hidden="true"></i></a></li>
                 <li class="social-item"><a class="social-link text-light" href="https://github.com/MBSA-INFINITY"><i class="ti-github" aria-hidden="true"></i></a></li>
@@ -58,11 +59,11 @@
                     <li class="nav-item">
                         <a href="#projects" class="nav-link" onclick="CloseTogglerIcon()">Projects</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a href="#blog" class="nav-link" onclick="CloseTogglerIcon()">Blog</a>
-                    </li>
-                    <li class="nav-item last-item">
-                        <a href="#contact" class="nav-link" onclick="CloseTogglerIcon()">Contact</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link" onclick="CloseTogglerIcon()">Contact Me</a>
                     </li>
                 </ul>
             </div>
@@ -99,25 +100,25 @@
                 <h3 class="font-weight-light">My Expertise</h3>
                 <span class="line mb-5"></span>
                 <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-widget icon-lg"></i></div>
+                    <div class="col-1 text-danger pt-1"><i class="ti-world icon-lg"></i></div>
                     <div class="col-10 ml-auto mr-3">
-                        <h6>UX Design</h6>
+                        <h6>Backend Web Development</h6>
                         <p class="subtitle"> exercitat Repellendus,  corrupt.</p>
                         <hr>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-paint-bucket icon-lg"></i></div>
+                    <div class="col-1 text-danger pt-1"><i class="ti-bolt-alt icon-lg"></i></div>
                     <div class="col-10 ml-auto mr-3">
-                        <h6>Web Development</h6>
+                        <h6>Machine Learning</h6>
                         <p class="subtitle">Lorem ipsum dolor sit consectetur.</p>
                         <hr>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-1 text-danger pt-1"><i class="ti-stats-up icon-lg"></i></div>
+                    <div class="col-1 text-danger pt-1"><i class="ti-microphone icon-lg"></i></div>
                     <div class="col-10 ml-auto mr-3">
-                        <h6>Digital Marketing</h6>
+                        <h6>Natural Language Processing</h6>
                         <p class="subtitle">voluptate commodi illo voluptatib.</p>
                         <hr>
                     </div>
@@ -740,20 +741,20 @@
                 <div class="col-lg-8">
                     <div class="contact-form-card">
                         <h4 class="contact-title">Send a message</h4>
-                        <form action="">
+                        <!-- <form> -->
                             <div class="form-group">
-                                <input  class="form-control" type="text" placeholder="Name *" required>
+                                <input  class="form-control" type="text" placeholder="Name *" name="name" id="name" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="email" placeholder="Email *" required>
+                                <input class="form-control" type="email" placeholder="Email *" name="email" id="email"  required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" id=" placeholder="Message *" rows="7" placeholder="Message * " required></textarea>
+                                <textarea class="form-control" placeholder="Message *" rows="7" placeholder="Message * " name="msg" id="msg" required></textarea>
                             </div>
                             <div class="form-group ">
-                                <button type="submit" class="form-control btn btn-primary" >Send Message</button>
+                                <button class="form-control btn btn-primary" onclick="SendMessage()">Send Message</button>
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
                 <div class="col-lg-4">
@@ -801,6 +802,24 @@
     function CloseTogglerIcon(){
         document.getElementById("navbar_toggler").click()
     }
+    function SendMessage(){
+        let name = document.getElementById("name").value
+        let email = document.getElementById("email").value
+        let msg = document.getElementById("msg").value
+        if (name!="" && email!="" && msg!=""){
+            final_url = `https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjEwNTZjMDYzMTA0Mzc1MjY0NTUzNiI_3D_pc?name=${name}&email=${email}&msg=${msg}`
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", final_url, false ); // false for synchronous request
+            xmlHttp.send( null );
+            alert("I have recieved your message, will contact you shortly!!")
+            document.getElementById("name").value = ""
+            document.getElementById("email").value = ""
+            document.getElementById("msg").value = ""
+        }
+        else{
+            alert("Please fill the form completely!!")
+        }
+    }
  </script>
 	<!-- core  -->
     <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
@@ -813,10 +832,10 @@
     <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
     
     <!-- Google mpas -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+    <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script> -->
 
     <!-- JohnDoe js -->
-    <script src="assets/js/johndoe.js"></script>
+    <script src="assets/js/mbsaiaditya.js"></script>
 
 </body>
 </html>

@@ -11629,6 +11629,10 @@ pre .code {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../imgs/footer.jpg);
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../imgs/footer.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
